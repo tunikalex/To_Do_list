@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo application</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script defer src="./todo.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            createTab(document.getElementById('todo-app'), title='Мои дела');
+        });
+    </script>
+</head>
+
+<body>
+    <nav class="nav">
+        <a class="nav-link" href="index.html">Мои дела</a>
+        <a class="nav-link" href="dad.html">Папины дела</a>
+        <a class="nav-link" href="mom.html">Мамины дела</a>
+    </nav>
+    <div class="contaner" id="todo-app"></div>
+</body>
+
+</html>
