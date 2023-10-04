@@ -61,7 +61,6 @@
     deleteBtn.textContent = "Удалить";
 
     // вкладывем кнопки в один элемент, что бы они объеденились в один блок
-
     buttonGroup.append(doneBtn);
     buttonGroup.append(deleteBtn);
     item.append(buttonGroup);
@@ -92,8 +91,10 @@
     let btnPrimary = document.body.getElementsByClassName('btn-primary');
     let inp = document.getElementById('input');
     inp.addEventListener('input', function () {
-      if (inp.value !== "") {
-        btnPrimary[0].classList.remove('disabled')
+      if (inp.value == '') {
+        btnPrimary[0].classList.add('disabled');
+      } else {
+        btnPrimary[0].classList.remove('disabled');
       }
     });
 
@@ -108,16 +109,10 @@
         return;
       }
 
-      // let form = document.body.getElementsByClassName('form-control');
-      // let btnPrimary = document.body.getElementsByClassName('btn-primary');
-      // if (form[0] !== '') { btnPrimary[0].classList.remove('disabled')};
-
       // создаём и добавляем в список новое дело,
       let taskDate = { 'name': todoItemForm.input.value, 'status': 'done' };
       let todoItem = createTodoItem(taskDate);
-      if (inp.value !== "") {
-        btnPrimary[0].classList.remove('disabled')
-      }
+
       // добавляем обработчики событий на кнопки
       todoItem.doneBtn.addEventListener('click', function () {
         todoItem.item.classList.toggle('list-group-item-success');
@@ -137,7 +132,3 @@
   }
   window.createTab = createTab
 })()
-
-// let form = document.body.getElementsByClassName('form-control');
-// let btnPrimary = document.body.getElementsByClassName('btn-primary');
-// if (form[0] !== '') { btnPrimary[0].classList.remove('disabled')};
