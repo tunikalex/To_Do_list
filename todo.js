@@ -76,8 +76,14 @@
   }
 
   // создаём id для элемента задачи, проверяем его на совпадения с уже существующими ID
-  function createArrayId(nameObj) {
+  function createArrayId() {
     let randomId = Math.round(Math.random() * 1000);
+    // проверка на совпадение id с уже существующим
+    for (let iObject of todoArray) {
+      if (iObject.id == randomId) {
+        createArrayId()
+      }
+    }
 
     return randomId
   }
@@ -101,7 +107,6 @@
       todoTaskElement.item.classList.toggle('list-group-item-success');
       for (let object of todoArray) {
         if (object.id == id) {
-          console.log('изменился статус');
           object.done = (object.done == false) ? true : false;
           loadLocalStorage(listName)
         }
@@ -150,7 +155,6 @@
     let jsData = downloadLocalStorage(listName);
     if (jsData) {
       for (let iObj of jsData) {
-        console.log(iObj);
         todoArray.push(iObj);
         let iTask = createTodoItem(iObj);
         todoList.append(iTask.item);
@@ -177,7 +181,7 @@
       let todoItem = createTodoItem(taskDate);
 
       //генерируем id и добавляем данные в массив
-      let id = createArrayId(nameObj = taskDate);
+      let id = createArrayId();
       todoArray.push({ 'id': id, 'name': todoItemForm.input.value, 'done': false });
 
       // добавляем обработчики событий на кнопки
@@ -188,11 +192,6 @@
 
       loadLocalStorage(listName)
 
-      //test
-      console.log('В списке дел находится:')
-      for (let elArr of todoArray) {
-        console.log(elArr);
-      }
 
       // обнуляем значение в поле ввода
       todoItemForm.input.value = "";
@@ -205,13 +204,3 @@
   window.createTodoApp = createTodoApp;
 })()
 
-
-// let jsData = downloadLocalStorage(listName);
-// if (jsData) {
-//   for (let iObj of jsData) {
-//     console.log(iObj);
-//     todoArray.push(iObj);
-//     let xx = createTodoItem(iObj);
-//     todoList.append(xx.item)
-//   };
-// };
