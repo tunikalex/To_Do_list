@@ -9,7 +9,7 @@ This application provides basic functionality for creating and managing a task l
 1. **Clone the repository** to your computer using the following command:
 
 ```bash
-   git clone https://github.comyour_repository_path
+   git clone https://github.com/tunikalex/To_Do_list_application.git
 ```
 
 2. **Launch the application** by opening one of the HTML files in your web browser:

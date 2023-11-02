@@ -7,7 +7,7 @@
 1. **Клонируйте репозиторий:** Склонируйте этот репозиторий на свой компьютер с помощью следующей команды:
 
 ```bash
-   git clone https://gigit clone https://github.com/your_repository_paththub.com/путь_к_репозиторию
+   git clone https://github.com/tunikalex/To_Do_list_application.git
 ```
 
 2. **Запустите приложение**, открыв HTML-файл в вашем веб-браузере:
